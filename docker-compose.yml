@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  web:
+  api:
     image: ppawletta/flask-api
     ports:
       - 5000:5000
@@ -21,6 +21,15 @@ services:
       - 3000:3000
     volumes:
       - nosqlclient-data:/data/db
+  client:
+    image: ppawletta/nginx-react
+    ports:
+      - 80:80
+    depends_on:
+      - api
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+
 
 volumes:
   db-data:
