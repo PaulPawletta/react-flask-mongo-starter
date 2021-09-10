@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  web:
+    image: ppawletta/flask-api
+    ports:
+      - 5000:5000
+    depends_on:
+      - mongodb
+    environment:
+      FLASK_ENV: production
+      MONGODB_URL: mongodb://mongodb
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - db-data:/data/db
+  nosqlclient:
+    image: mongoclient/mongoclient
+    ports:
+      - 3000:3000
+    volumes:
+      - nosqlclient-data:/data/db
+
+volumes:
+  db-data:
+  nosqlclient-data:
