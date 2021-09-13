@@ -1,9 +1,19 @@
 # react-flask-mongo-starter
 
-run full stack
-```
-docker-compose up
-```
+## Development
+
+start backend in dev mode
+````
+docker-compose -f docker-compose-dev.yml up --build
+````
+
+start frontend in dev mode
+````
+cd client
+yarn start
+````
+
+### Production
 
 ## Flask API
 ```

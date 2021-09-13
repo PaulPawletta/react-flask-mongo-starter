@@ -24,19 +24,6 @@ services:
       - 4000:3000
     volumes:
       - nosqlclient-data:/data/db
-  client:
-    build:
-      context: .
-      dockerfile: Dockerfile.client-dev
-    image: ppawletta/react-dev
-    ports:
-      - 3000:3000
-    depends_on:
-      - api
-    volumes:
-      - ./client/src:/app/src
-      - ./client/public:/app/public
-
 
 volumes:
   db-data:

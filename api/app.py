@@ -4,12 +4,14 @@ from flask_restx import Api
 from mongoengine import connect
 from v1.resources.todos import todos
 from dotenv import load_dotenv
+from flask_cors import CORS
 
 from config import Development, Production
 
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 
 # Blueprint to change URL base path to /api
 blueprint = Blueprint('api', __name__, url_prefix='/api')
