@@ -1,0 +1,10 @@
+FROM node:14-alpine
+WORKDIR /app
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY client/package.json client/yarn.lock ./
+COPY ./client/src ./src
+COPY ./client/public ./public
+RUN yarn install
+EXPOSE 3000
+CMD ["yarn", "start"]
